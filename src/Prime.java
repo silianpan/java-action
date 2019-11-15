@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * 求小于N的所有素数
  */
-public class Action1 {
+public class Prime {
     public static void main(String args[]) {
         /**
          * Scanner控制台输入一个整数
