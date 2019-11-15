@@ -1,3 +1,5 @@
+package prime;
+
 import java.util.Scanner;
 
 /**
