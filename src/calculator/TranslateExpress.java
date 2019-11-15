@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class TranslateExpress
 {
-	//ת��ɺ�׺���ʽ
+	//转变成后缀表达式
 	private Stack<Character> stack = new Stack<Character>(); 
 	
 	public boolean translateExpress(char[] str, char[] exp)
@@ -99,7 +99,7 @@ public class TranslateExpress
 		return true;
 	}
 	
-	//�ж����ȼ�
+	//判断优先级
 	public boolean isOperHeigh(char stack_ch, char exp_ch)
 	{
 		if((stack_ch == '/' || stack_ch == '*') && (exp_ch == '+' || exp_ch == '-'))

@@ -5,10 +5,9 @@ import java.util.Stack;
 
 public class ComputeExpress 
 {
-	//�Ժ�׺���ʽ���м���
+	//对后缀表达式进行计算
 		public Double computeExpress(char Array[])
 		{
-			System.out.println(Array);
 			Stack<Double> s = new Stack<Double>();
 
 			double result;
@@ -20,7 +19,7 @@ public class ComputeExpress
 			//System.out.println(Array.length);
 			while(Array[i] != '\0')
 			{
-				//�������ַ���ת���ɸ�����
+				//将数字字符串转换成浮点数
 				if((Array[i] >= '0' && Array[i] <= '9') || Array[i] == '.')
 				{
 					if(i == 0)

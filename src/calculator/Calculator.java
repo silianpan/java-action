@@ -7,7 +7,7 @@ import javax.swing.event.*;
 
 public class Calculator {
 
-	private JFrame frame;//���
+	private JFrame frame;//框架
 	private String textfield_string = "";
 	private String label_string = "";
 	private String save_string = "";
@@ -41,7 +41,7 @@ public class Calculator {
 		TranslateExpress teExpress = new TranslateExpress();
 
 		teExpress.translateExpress(ch2, exp);
-		System.out.println(exp);
+		System.out.println(String.valueOf(exp).trim());
 		ComputeExpress ceComputeExpress = new ComputeExpress();		
 		System.out.println(ceComputeExpress.computeExpress(exp));
 	}
@@ -51,7 +51,6 @@ public class Calculator {
 	 */
 	public Calculator() {
 		initialize();
-		
 	}
 
 	/**
@@ -59,7 +58,7 @@ public class Calculator {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\lp\\Downloads\\20120705125221237_easyicon_cn_128.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("calculator.png"));
 		frame.setTitle("\u8BA1\u7B97\u5668");
 		frame.setBounds(100, 100, 334, 330);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,25 +70,25 @@ public class Calculator {
 		panel.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("��Բ", Font.BOLD, 16));
+		textField.setFont(new Font("幼圆", Font.BOLD, 16));
 		textField.setBounds(12, 0, 292, 28);
 		textField.setEditable(false);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		label = new JLabel("0");
-		label.setFont(new Font("��Բ", Font.BOLD, 16));
+		label.setFont(new Font("幼圆", Font.BOLD, 16));
 		label.setBounds(36, 30, 268, 31);
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(label);
 		
 		label_1 = new JLabel("");
-		label_1.setFont(new Font("��Բ", Font.BOLD, 16));
+		label_1.setFont(new Font("幼圆", Font.BOLD, 16));
 		label_1.setHorizontalAlignment(SwingConstants.LEFT);
 		label_1.setBounds(12, 30, 23, 31);
 		panel.add(label_1);
 		
-		//����һ�����
+		//加入一个面板
 		ButtonPanel panel_1 = new ButtonPanel();
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
@@ -107,31 +106,31 @@ public class Calculator {
 			JButton btnMc = new JButton("MC");
 			btnMc.setBounds(10, 5, 51, 28);
 			this.add(btnMc);
-			btnMc.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnMc.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnMc.addActionListener(new ButtonListener("MC"));
 			
 			JButton btnMr = new JButton("MR");
 			btnMr.setBounds(71, 5, 51, 28);
 			this.add(btnMr);
-			btnMr.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnMr.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnMr.addActionListener(new ButtonListener("MR"));
 			
 			JButton btnMs = new JButton("MS");
 			btnMs.setBounds(132, 5, 51, 28);
 			this.add(btnMs);
-			btnMs.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnMs.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnMs.addActionListener(new ButtonListener("MS"));
 			
 			JButton btnM = new JButton("M+");
 			btnM.setBounds(193, 5, 51, 28);
 			this.add(btnM);
-			btnM.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnM.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnM.addActionListener(new ButtonListener("M+"));
 			
 			JButton btnM_1 = new JButton("M-");
 			btnM_1.setBounds(254, 5, 52, 28);
 			this.add(btnM_1);
-			btnM_1.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnM_1.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnM_1.addActionListener(new ButtonListener("M-"));
 			
 			JButton button_5 = new JButton("<-");
@@ -142,13 +141,13 @@ public class Calculator {
 			JButton btnCe = new JButton("CE");
 			btnCe.setBounds(71, 43, 51, 28);
 			this.add(btnCe);
-			btnCe.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnCe.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnCe.addActionListener(new ButtonListener("CE"));
 			
 			JButton btnC = new JButton("C");
 			btnC.setBounds(132, 43, 51, 28);
 			this.add(btnC);
-			btnC.setFont(new Font("��Բ", Font.BOLD, 13));
+			btnC.setFont(new Font("幼圆", Font.BOLD, 13));
 			btnC.addActionListener(new ButtonListener("C"));
 			
 			JButton button_8 = new JButton("+-");
@@ -255,12 +254,12 @@ public class Calculator {
 	}
 	
 	String string = null;
-	boolean flag = true;//�ж϶�ε������
-	boolean flag2 = true;//�ж��ٴε�����ţ��޸ķ���
-	boolean flag3 = true;//�ж���������Ⱥ�
-	boolean flag4 = false;//�ж��и��ŵ������
-	boolean flag5  = false;//�жϵ��������֮�󣬵�����ּ�����ԭ���Ľ�������
-	boolean flag6 = false;//�ж϶�ε��С����	
+	boolean flag = true;//判断多次点击数字
+	boolean flag2 = true;//判断再次点击符号，修改符号
+	boolean flag3 = true;//判断连续点击等号
+	boolean flag4 = false;//判断有负号的情况下
+	boolean flag5  = false;//判断点击操作符之后，点击数字键，则将原来的结果给清掉
+	boolean flag6 = false;//判断多次点击小数点	
 	
 	private class ButtonListener implements ActionListener
 	{
@@ -276,7 +275,7 @@ public class Calculator {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub	
 			
-			//�������������ּ���С����
+			//如果点击的是数字键或小数点
 			if(isNumber(buttonText.charAt(0)))
 			{
 				flag2 = true;
@@ -335,7 +334,7 @@ public class Calculator {
 				}
 				else
 				{
-					if(flag)//��һ�ε��
+					if(flag)//第一次点击
 					{	
 						if(buttonText.equals("."))
 						{
@@ -349,7 +348,7 @@ public class Calculator {
 						label.setText(label_string);
 						flag = false;
 					}
-					else//�ٴε��
+					else//再次点击
 					{
 						if(flag6 && buttonText.equals("."))
 						{}
@@ -362,7 +361,7 @@ public class Calculator {
 				}
 			}
 			
-			//�ڵ�����ŵ�ʱ�򣬽�flag��Ϊtrue
+			//在点击符号的时候，将flag置为true
 			if(isOperator(buttonText.charAt(0)) && !buttonText.equals("+-") && !buttonText.equals("/x"))
 			{
 				flag = true;
@@ -408,8 +407,8 @@ public class Calculator {
 							} catch (Exception e2) 
 							{
 								// TODO: handle exception
-								label.setText("������Χ");
-								//JOptionPane.showMessageDialog(null, "������Χ");
+								label.setText("超出范围");
+								//JOptionPane.showMessageDialog(null, "超出范围");
 							}							
 						}
 						//textfield_string = compute_string + buttonText;
@@ -428,7 +427,7 @@ public class Calculator {
 				{
 					if(string != null)
 					{
-						//���label.setText
+						//结果label.setText
 						string2 = new String(label.getText() + string);					
 						label.setText(this.compute(string2));
 						label_string = "";
@@ -467,8 +466,8 @@ public class Calculator {
 							}
 						} catch (Exception e2) {
 							// TODO: handle exception
-							label.setText("������Χ");
-							//JOptionPane.showMessageDialog(null, "������Χ");
+							label.setText("超出范围");
+							//JOptionPane.showMessageDialog(null, "超出范围");
 						}
 						
 						textField.setText("");
@@ -477,15 +476,15 @@ public class Calculator {
 					}
 					else
 					{
-						//���label.setText
+						//结果label.setText
 						string2 = new String(label.getText() + string);	
 						try
 						{
 							label.setText(this.compute(string2));
 						} catch (Exception e2) {
 							// TODO: handle exception
-							label.setText("������Χ");
-							//JOptionPane.showMessageDialog(null, "������Χ");
+							label.setText("超出范围");
+							//JOptionPane.showMessageDialog(null, "超出范围");
 						}
 						
 						label_string = "";
@@ -560,8 +559,8 @@ public class Calculator {
 				} catch (Exception e2)
 				{
 					// TODO: handle exception
-					label.setText("������Χ");
-					//JOptionPane.showMessageDialog(null, "������Χ");
+					label.setText("超出范围");
+					//JOptionPane.showMessageDialog(null, "超出范围");
 				}				
 			}
 			
@@ -576,8 +575,8 @@ public class Calculator {
 				} 
 				catch (Exception e2)
 				{
-					label.setText("������Χ");
-					//JOptionPane.showMessageDialog(null, "������Χ");
+					label.setText("超出范围");
+					//JOptionPane.showMessageDialog(null, "超出范围");
 				}				
 			}
 			
@@ -588,8 +587,8 @@ public class Calculator {
 				{
 					if(label.getText().charAt(0) == '-')
 					{
-						label.setText("��ƽ������Ϊ����");
-						//JOptionPane.showMessageDialog(null, "��ƽ������Ϊ����");
+						label.setText("开平方不能为负！");
+						//JOptionPane.showMessageDialog(null, "开平方不能为负！");
 					}
 					else
 					{
@@ -600,8 +599,8 @@ public class Calculator {
 				} catch (Exception e2)
 				{
 					// TODO: handle exception
-					label.setText("������Χ");
-					//JOptionPane.showMessageDialog(null, "������Χ");
+					label.setText("超出范围");
+					//JOptionPane.showMessageDialog(null, "超出范围");
 				}
 			}
 			
@@ -638,7 +637,7 @@ public class Calculator {
 			}
 		}
 		
-		//�ж�һ�ַ�Ϊ����
+		//判断一字符为数字
 		public boolean isNumber(char ch)
 		{
 			if((ch >= '0' && ch <= '9') || ch == '.')
@@ -646,7 +645,7 @@ public class Calculator {
 			return false;
 		}
 		
-		//�ж�һ�ַ���Ϊ�����ַ���
+		//判读一字符串为数字字符串
 		public boolean isNumber(String str)
 		{
 			char[] ch = str.toCharArray();
@@ -658,7 +657,7 @@ public class Calculator {
 			return true;
 		}
 		
-		//�ж�һ�ַ���Ϊ�������ַ���
+		//判断一字符串为操作符字符串
 		public boolean isOperator(String str)
 		{
 			char[] ch = str.toCharArray();
@@ -670,7 +669,7 @@ public class Calculator {
 			return true;
 		}
 		
-		//�ж�һ�ַ��Ƿ��ǲ�����
+		//判断一字符是否是操作符
 		public boolean isOperator(char ch)
 		{
 			if(ch == '+' || ch == '-' || ch == '*' || ch == '/')
@@ -678,7 +677,7 @@ public class Calculator {
 			return false;
 		}
 		
-		//�ж��ַ���Ϊ���֣������һ���ַ�Ϊ������
+		//判断字符串为数字，且最后一个字符为操作符
 		public boolean isNumberEndofChar(String str)
 		{
 			char[] ch = str.toCharArray();
@@ -693,7 +692,7 @@ public class Calculator {
 			else return false;
 		}
 		
-		//�õ���׺���ʽ����Ҫ����ת���ı��ʽ
+		//得到中缀表达式，即要进行转换的表达式
 		public String compute(String str)
 		{
 			char[] exp = new char[100];
@@ -702,7 +701,7 @@ public class Calculator {
 			TranslateExpress tExpress = new TranslateExpress();
 			tExpress.translateExpress(ch, exp);
 			if(!tExpress.translateExpress(ch, exp))
-				return "����Ƿ�";
+				return "输入非法";
 			
 			ComputeExpress cExpress = new ComputeExpress();
 			String temp = cExpress.computeExpress(exp).toString();
@@ -713,7 +712,7 @@ public class Calculator {
 			return temp;
 		}
 		
-		//�滻���һ���ַ�
+		//替换最后一个字符
 		public String replaceEndOfChar(String str, char ch)
 		{
 			char[] chArr = str.toCharArray();
@@ -722,7 +721,7 @@ public class Calculator {
 			
 		}
 		
-		//�ж��Ƿ��ǵ��ڷ���
+		//判断是否是等于符号
 		public boolean isEqualsOperator(String str)
 		{
 			if(str.equals("="))
