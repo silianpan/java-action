@@ -22,6 +22,7 @@ public class Prime {
     /**
      * 算法一
      * 只能被1或本身整除的整数
+     *
      * @param num
      * @return
      */
@@ -38,6 +39,7 @@ public class Prime {
      * 算法二
      * 12能被2整除，也能被6整除
      * 所以循环变成：Math.sqrt(num)
+     *
      * @param num
      * @return
      */
