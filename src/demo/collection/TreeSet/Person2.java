@@ -1,9 +1,10 @@
+package demo.collection.TreeSet;
 
-public class Person implements Comparable<Object>{
+public class Person2 implements Comparable<Object>{
 	private String name;
 	private int age;
 	
-	public Person(String name, int age){
+	public Person2(String name, int age){
 		this.name = name;
 		this.age = age;
 	}

@@ -1,3 +1,4 @@
+package demo.enumDemo;
 
 public class Test {
 

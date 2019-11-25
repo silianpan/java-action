@@ -1,4 +1,4 @@
-package test3;
+package test.test3;
 
 public class MyTime {
 	private int hour;

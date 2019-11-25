@@ -1,4 +1,4 @@
-package test4;
+package test.test4;
 
 public class Number {
 	private int n1;

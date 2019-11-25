@@ -1,8 +1,10 @@
+package demo.collection.HashSet;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Test {
+public class Test2 {
 	
 	public static void main(String args[]){
 		

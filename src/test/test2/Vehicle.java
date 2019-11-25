@@ -1,4 +1,4 @@
-package test2;
+package test.test2;
 
 public class Vehicle {
 	private int speed;

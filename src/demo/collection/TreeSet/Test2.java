@@ -1,3 +1,5 @@
+package demo.collection.TreeSet;
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,7 +11,7 @@ import java.util.TreeSet;
  * 		b. 如果是自定义类，那么要实现Comparable接口，实现compareTo方法
  */
 
-public class Test {
+public class Test2 {
 	
 	public static void main(String args[]){
 		

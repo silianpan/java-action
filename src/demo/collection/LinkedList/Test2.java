@@ -1,9 +1,11 @@
+package demo.collection.LinkedList;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Test {
+public class Test2 {
 	
 	public static void main(String args[]){
 		

@@ -1,5 +1,6 @@
+package demo.reflect;
+
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 

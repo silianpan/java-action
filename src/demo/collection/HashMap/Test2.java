@@ -1,3 +1,5 @@
+package demo.collection.HashMap;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +19,7 @@ import java.util.Set;
  * 	（2）后面重复的内容，会覆盖前面相同key的数据
  *
  */
-public class Test {
+public class Test2 {
 
 	public static void main(String[] args) {
 		

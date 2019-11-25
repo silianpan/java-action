@@ -1,3 +1,4 @@
+package demo.collection.TreeMap;
 
 public class Person implements Comparable<Object>{
 	private String name;

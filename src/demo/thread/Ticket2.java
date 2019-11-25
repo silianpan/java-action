@@ -1,3 +1,4 @@
+package demo.thread;
 
 /**
  * 1 多线程实现方式

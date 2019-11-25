@@ -1,3 +1,4 @@
+package demo.genericType;
 
 public class Test {
 

@@ -1,3 +1,4 @@
+package demo.enumDemo;
 
 // 创建一个枚举Color
 public enum Color {

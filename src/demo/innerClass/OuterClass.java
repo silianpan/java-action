@@ -1,4 +1,4 @@
-package innnerClass2;
+package demo.innerClass;
 
 public class OuterClass {
 
